@@ -4,9 +4,9 @@
  * @package   FileBox
  * @author    Jooies <jooies@ya.ru>
  * @copyright Copyright (c) 2014-2016
- * @since     Version 1.10.0.1
+ * @since     Version 1.10.0.2
  *
- * 设置说明  
+ * 设置说明
  * $sitetitle - 标题名称
  * $user - 用户名
  * $pass - 密码
@@ -18,10 +18,10 @@ date_default_timezone_set('Asia/Shanghai');
 session_start();
 error_reporting(1);
 $sitetitle = 'FileBox';
-$user = 'admin';
-$pass = '123456';
+$user = 'filebox';
+$pass = 'filebox';
 $safe_num = 0;//设置多少次后禁止登陆，为0则不限制，建议为3-5
-$mail = 'i@hezi.be';//若有恶意登录，会发邮件到这个邮箱，前提是mail()函数可用！
+$mail = 'email@qq.com';//若有恶意登录，会发邮件到这个邮箱，前提是mail()函数可用！
 $meurl = $_SERVER['PHP_SELF'];
 $os = (DIRECTORY_SEPARATOR=='\\')?"windows":'linux';
 $op = (isset($_REQUEST['op']))?htmlentities($_REQUEST['op']):'home';
@@ -242,13 +242,7 @@ function gettime($filename){return "修改时间：".date("Y-m-d H:i:s",filemtim
 function uCode($text){return mb_convert_encoding($text,'UTF-8','GBK');}
 function gCode($text){return mb_convert_encoding($text,'GBK','UTF-8');}
 
-/**
- * 获取目录大小。为保证执行效率，本方法不用了。
- * @param  [type] $directoty [description]
- * @return [type]            [description]
- */
 function dirSize($directoty){
-	return '';
   $dir_size=0;
     if($dir_handle=opendir($directoty))
     	{
@@ -932,7 +926,7 @@ function logout() {
 
 function mainbottom() {
     echo "</div><div style='text-align:center;font-size:13px;color:#999 !important;margin:10px 0 45px 0;font-family:Candara;'>"
-        ."FileBox Version 1.10.0.1</div></body>\n"
+        ."FileBox Version 1.10.0.2</div></body>\n"
         ."</html>\n";
     exit;
 }
